@@ -33,6 +33,14 @@ func RunClient() {
 		panic(err)
 	}
 
+	err = tc.Send(&ChunkOrSetup{X: &ChunkOrSetup_SetupRequest{&SetupRequest{		tsc := NewTunnelServiceClient(conn)
+		Ip:   "127.0.0.1",	
+		Port: 1060,	
+	}}})
+    if err != nil {
+		panic(err)
+	}
+	
 	sendPacket := func(data []byte) error {
 		return tc.Send(&Chunk{Data: data})
 	}
